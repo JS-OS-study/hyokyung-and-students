@@ -1,5 +1,5 @@
-# hyokyung-and-students
-반효경님의 운영체제 강의를 학습하는 레포지토리 -효경님과 제자들-
+# hyokyung-and-students (✨효경님과 제자들✨)
+반효경님의 운영체제 강의를 학습하는 레포지토리
 
 # 학습방식
 1. 📝 **스터디 전 1** : [반효경님의 운영체제 강의](http://www.kocw.or.kr/home/cview.do?mty=p&kemId=1046323) 를 강의를 듣고 운영체제에 대해 학습한다.
