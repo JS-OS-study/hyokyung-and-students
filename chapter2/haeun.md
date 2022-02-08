@@ -41,7 +41,7 @@
  
 
 ** 만약 io device에서 계속 CPU한테 인터럽트를 걸어서 메모리에 있는 데이터 보낸다면? **
-** cpu가 인터럽트를 너무 많이 당함 -> 비효율적. 그래서 있는게 DMA Controller**
+** cpu가 인터럽트를 너무 많이 당함 -> 비효율적. 그래서 있는게 DMA Controller **
 
 ## DMA Controller (Direct Memory Access Controller)
 - Memory에 CPU, DMA Ctrl 둘다 접근 가능. 
