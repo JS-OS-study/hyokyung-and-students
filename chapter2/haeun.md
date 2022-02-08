@@ -96,6 +96,7 @@ CPU-register-cache memory-main memory(d ram)-...
 
 ## 프로그램의 실행
 <img src='https://user-images.githubusercontent.com/50111853/152998172-78c42928-fb16-4c96-8120-e2740d736b35.png' width='450px'/>
+
 - 주로 .exe 
 - 프로그램을 실행시키면 그 실행파일의 독자적인 주소공간(virtual memory)이 생긴다. 프로그램 종료시 사라짐
 - 주소공간(Address space): 코드, 데이터, 스택으로 이루어짐 / 0번지부터 시작
@@ -104,7 +105,8 @@ CPU-register-cache memory-main memory(d ram)-...
 - swap area: 전원 나오면 다 지워지는 부분임. 메모리 연장 공간으로 사용됨.
 
 ## 커널 주소공간(버츄얼 메모리)의 내용
-<img src='https://user-images.githubusercontent.com/50111853/152998323-c2a47006-f31c-4006-ad9e-93c00e7f101a.png' width='450px'>
+<img src='https://user-images.githubusercontent.com/50111853/152998323-c2a47006-f31c-4006-ad9e-93c00e7f101a.png' width='450px' />
+
 - 커널도 하나의 프로그램이므로 주소공간으로 구성돼있음. 
 - os는 자원을 효율적으로 관리하는 역할 하므로 관련 된 코드가 code 안에 있음
 - os는 인터럽트가 들어오면 cpu를 가지므로 인터럽트, 시스템콜 처리 코드가 code 안에
@@ -115,7 +117,7 @@ CPU-register-cache memory-main memory(d ram)-...
 ## 함수
 - 사용자 정의 함수: 내가 만들고 내가 불러서쓰는 함수
 - 라이브러리 함수: 누군가 만들어놓은 함수
-- > 내 실행 파일 안에 둘다 포함되어있음. **사용자 프로세스의 주소 공간**에 있음
+  - 내 실행 파일 안에 둘다 포함되어있음. **사용자 프로세스의 주소 공간**에 있음
 - 커널 함수: os 안에서 정의된 함수. 시스템 콜을 해서 쓸 수 있음. **커널의 주소공간** 안에 들어있음.
 - 위2함수->커널 함수 는 메모리 주소가 점프해야하므로 불가능. 그렇기에 커널 함수 호출할땐 시스템콜로 cpu 제어권을 os로 보내서 실행함. 
 
