@@ -40,7 +40,6 @@
 1 사용자 프로그램 모드 : cpu는 제한된 Inst만 가능
  
 
------
 ** 만약 io device에서 계속 CPU한테 인터럽트를 걸어서 메모리에 있는 데이터 보낸다면? **
 ** cpu가 인터럽트를 너무 많이 당함 -> 비효율적. 그래서 있는게 DMA Controller**
 
@@ -62,6 +61,6 @@
 
 
 ## 질문
-q. 영상1 9:55에 일을 시킨다고 했는데 cpu-memory까지만 간다. 이떄 cpu->io device에 일을 시키는 과정/연관된 장비는 무엇인가? (line 15 쯤과 관련)
+Q. 영상1 9:55에 일을 시킨다고 했는데 cpu-memory까지만 간다. 이떄 cpu->io device에 일을 시키는 과정/연관된 장비는 무엇인가? (line 15 쯤과 관련)
 a? data는 io local 버퍼에, inst는 io register에 넣는다고함
 
