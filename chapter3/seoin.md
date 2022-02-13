@@ -5,7 +5,9 @@
 a program in execution → 실행중인 프로그램
 
 가장 중요한 것은 process context를 아는 것
+
 <br/>
+
 ### Process context
 
 특정 시점에 이 프로그램이 어디까지 실행됐고, 현재 시점에 Process counter가 어딜 가리키고 있고, 메모리엔 어떤 내용이 있는지... 등
@@ -23,7 +25,6 @@ a program in execution → 실행중인 프로그램
         
         각 프로세스 별로 커널 스택을 별도로 두고 있다.
         
-<br/>
 <br/>
 
 ### Process State(상태)
@@ -64,7 +65,6 @@ CPU를 줘도 당장 instruction을 수행할 수 없는 상태
     ex) 사용자가 프로그램을 일시 정지시킨 경우(break key), 시스템이 여러 이유로 프로세스를 잠시 중단시킴
     
 <br/>
-<br/>
 
 ### Process Control Block
 
@@ -84,7 +84,7 @@ Process Metadata에는 다음과 같은 정보가 있다.
 프로그램이 실행되면 → 프로세스가 생성되고 → 프로세스 주소 공간에 (code, data, stack)이 생성 → 이 프로세스의 메타데이터들이 PCB에 저장됨
 
 PCB는 context switching 때문에 필요한데 앞으로 다시 수행할 block 상태의 프로세스 상태값을 PCB에 저장한다.
-<br/>
+
 <br/>
 
 ### Context Switch
@@ -101,7 +101,7 @@ PCB는 context switching 때문에 필요한데 앞으로 다시 수행할 block
     
 - system call 등의 운영체제로 잠시 CPU를 넘기는 경우, CPU 수행 정보 등 context 일부를 PCB에 저장해햐 하나 문맥교환을 하는 경우가 그 부담이 더 큼
 - ex) cache memory flush → 문맥 교환 시 그 프로세스가 사용하던 캐시 메모리를 모두 삭제해야 함(오버헤드가 큼)
-<br/>
+
 <br/>
 
 ### 프로세스 스케줄링을 위한  queue
@@ -118,7 +118,6 @@ PCB는 context switching 때문에 필요한데 앞으로 다시 수행할 block
     
     I/O device 처리를 기다리는 프로세스의 집합
     
-<br/>
 <br/>
 
 ### 스케줄러(Scheduler)
@@ -152,7 +151,6 @@ PCB는 context switching 때문에 필요한데 앞으로 다시 수행할 block
     프로세스 상태에 suspended가 추가함
     
 <br/>
-<br/>
 
 ### Thread : CPU의 수행 단위
 
@@ -163,13 +161,13 @@ PCB는 context switching 때문에 필요한데 앞으로 다시 수행할 block
 lightweight process라고도 함( ↔ heavyweight process는 전통적인 개념으로 1개의 스레드를 가진 task를 말함)
 
 <br/>
-<br/>
 
 ### Thread의 구성
 
 1. Program counter
 2. register set
 3. stack space
+
 <br/>
 
 Thread 간 공유하는 영역
@@ -177,7 +175,7 @@ Thread 간 공유하는 영역
 1. code section
 2. data section
 3. OS resources
-<br/>
+
 <br/>
 
 ### Thread 사용 장점
@@ -205,7 +203,6 @@ Thread 간 공유하는 영역
     각기 다른 프로세서에서 각 스레드가 병렬적으로 실행될 수 있다. 
     
 <br/>
-<br/>
 
 ### kernel thread, user thread, real-time thread
 
@@ -215,7 +212,6 @@ Thread 간 공유하는 영역
 
 
 
-<br/>
 <br/>
 <br/>
 
