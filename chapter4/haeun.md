@@ -12,6 +12,7 @@
 
 ### fork 코드 예시
 ![C언어 fork](https://user-images.githubusercontent.com/50111853/154212591-5918ba6c-ea96-453a-961b-0fdc3c967d3d.png)
+
 - fork()한 후 반환된 pid가 새로 생기는 자식 프로세스의 pid.
 - Pid로 자식/부모 프로세스 구분함. pid가 0인게 자식 프로세스
 - 자식 프로세스의 경우도 부모 프로세스의 문맥(especially **프로그램 카운터)을 그대로 받기 때문에 fork()이후 코드부터** 계속 실행함. (무한루프 아님!)
@@ -68,5 +69,3 @@ fork, exec, wait, exit, abort 다 **시스템 콜**
 -> **인터랙션이 많은 IO bound 잡한테 CPU를 많이 줘야 사용자가 안 답답함** -> CPU 스케줄링의 주요한 이슈
 
 프로세스는 io bound / cpu bound 프로세스 두개로 나뉜다.
-
-### 질문
