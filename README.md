@@ -23,7 +23,8 @@
 | 2/13 (sun) |    3    |                 Process 1,2,3                | [link](https://core.ewha.ac.kr/publicview/C0101020140318134023355997?vmode=f) |
 | 2/16 (wed) |    4    |            Process Management 1,2            | [link](https://core.ewha.ac.kr/publicview/C0101020140321144554159683?vmode=f) |
 | 2/20 (sun) |    5    | CPU Scheduling 1,2 & Process Synchronization | [link](https://core.ewha.ac.kr/publicview/C0101020140328151311578473?vmode=f) |
-| 2/23 (wed) |    6    |         Process Synchronaztion 1,2,3         | [link](https://core.ewha.ac.kr/publicview/C0101020140404144354492628?vmode=f) |
-| 2/27 (sun) |    7    |                 Deadlocks 1,2                | [link](https://core.ewha.ac.kr/publicview/C0101020140411151510275738?vmode=f) |
-|  3/2 (wed) |    8    |           Memory Management 1,2,3,4          | [link](https://core.ewha.ac.kr/publicview/C0101020140425151219100144?vmode=f) |
-|  3/6 (sun) |    9    |              Virtual Memory 1,2              | [link](https://core.ewha.ac.kr/publicview/C0101020140509151648408460?vmode=f) |
+| 2/23 (wed) |   6-1   |           Process Synchronaztion 1,2         | [link](https://core.ewha.ac.kr/publicview/C0101020140404144354492628?vmode=f) |
+| 2/27 (sun) |   6-2   |           Process Synchronaztion 3,4         | [link](https://core.ewha.ac.kr/publicview/C0101020140408134626290222?vmode=f) |
+|  3/2 (wed) |    7    |                Deadlocks 1,2                 | [link](https://core.ewha.ac.kr/publicview/C0101020140411151510275738?vmode=f) |
+|  3/6 (sun) |    8    |           Memory Management 1,2,3,4          | [link](https://core.ewha.ac.kr/publicview/C0101020140425151219100144?vmode=f) |
+|  3/10 (wed)|    9    |              Virtual Memory 1,2              | [link](https://core.ewha.ac.kr/publicview/C0101020140509151648408460?vmode=f) |
