@@ -101,5 +101,24 @@ response time: 첫번째 음식이 나올때까지 기다린 시간
 
 
 ## multiple processor scheduling
+![다수의 프로세서 스케쥴링](https://user-images.githubusercontent.com/50111853/154839986-bc4d10c5-9745-4d89-8aa7-803fd6b825da.png)
+
 - cpu가 여러개면 스케줄링은 더 복잡해짐
 - **load sharing**: 일부 프로세서에 Job이 몰리지 않게 부하를 공유
+
+## real time scheduling
+- real time: 정해진 데드라인 내에 끝나야함
+- 미리 스케줄링을 해서 적재적소에 배치 / 주로 주기적으로 작업하는 프로세스가 많음
+- hard real time systems: 반드시 데드라인 안에 끝내야
+- soft real time systems: 일반 프로세스에 비해 높은 우선순위를 갖도록
+
+
+## Thread scheduling
+- Local 스케줄링: (user level thread가) 운영체제는 그냥 그 프로세스한테 cpu 줄지 안 줄지 결정. 어떤 쓰레드한테 줄지는 쓰레드 내부가 선택 
+- 글로벌 스케줄링: 커널 레벨 쓰레드의 경우, 커널의 단기 스케줄러가 어떤 쓰레드를 스케줄할지 결정
+
+
+## 알고리즘 
+- 글로벌 스케줄링: 커널 레벨 쓰레드의 경우, 커널의 단기 스케줄러가 어떤 쓰레드를 스케줄할지 결정
+ㅍㅕㅇㄱ
+- 글로벌 스케줄링: 커널 레벨 쓰레드의 경우, 커널의 단기 스케줄러가 어떤 쓰레드를 스케줄할지 ㅍ
