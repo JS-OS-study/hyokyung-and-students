@@ -62,3 +62,16 @@ do {
 
 - 둘다 들어가고싶을때만 니턴 내턴을 따지고, 한 프로세스만 관심 있으면 걔가 들어가는 식
 - 문제: busy waiting(=spin lock): 계속 while 문을 돌면서 / CPU와 메모리를 쓰면서 대기함.
+
+하지만 **하드웨어적으로 test&modify를 atomic 수행**하면 간단히 해결 가능
+![test and set을 통한 상호 배제](https://user-images.githubusercontent.com/50111853/154954226-8547f53d-fed3-4188-b0f9-67b62b463468.png)
+
+
+## 세마포어(Semaphores)
+- Semaphore S가 있다. 정수형 변수
+- 추상 자료형(논리적 자료형): object, operation
+- 공유 자원을 획득, 반납할때 이 처리를 담당
+![세마포어](https://user-images.githubusercontent.com/50111853/154954534-b1138b44-d7c4-4e23-bcce-d4198e4c0d84.png)
+
+**p 연산: 공유 데이터를 획득하는 과정**
+**v 연산: 반납하는 과정**
