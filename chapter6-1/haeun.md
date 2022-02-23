@@ -1,7 +1,7 @@
 # Process synchronization
 
 #### 데이터의 접근
-Storage Box: Memory 주소 공간
+Storage Box: Memory 주소 공간  
 Execution Box: CPU 프로세스
 
 ![컴퓨터 시스템 내 데이터의 접근](https://user-images.githubusercontent.com/50111853/154946794-c1e3a6c1-358d-4b1b-9432-3283ff4300d1.png)
@@ -68,10 +68,64 @@ do {
 
 
 ## 세마포어(Semaphores)
-- Semaphore S가 있다. 정수형 변수
+- Semaphore S: 정수형 변수 / 앞의 방식들을 추상화
+- S = 자원의 개수 (5면 자원이 5개 있는거)
 - 추상 자료형(논리적 자료형): object, operation
 - 공유 자원을 획득, 반납할때 이 처리를 담당
+ 
 ![세마포어](https://user-images.githubusercontent.com/50111853/154954534-b1138b44-d7c4-4e23-bcce-d4198e4c0d84.png)
 
-**p 연산: 공유 데이터를 획득하는 과정**
+**p 연산: 공유 데이터를 획득하는 과정** p연산해서 자원 가져가면 S가 1 줄어듦
 **v 연산: 반납하는 과정**
+
+### P(S): 락을 거는 과정
+- while 돌다가 S가 양수가 되면(=누군가 자원을 내어놓으면) S--를 하고 자원을 냉큼 획득.
+- 계속 돌면 busy waiting과 다를 바 없다
+
+### V(S): 자원 반납
+
+이 두 연산은 atomic 연산을 통해서만 접근 가능
+
+## Critical Section of n Processes
+![p, v 연산이 있는 임계구역 알고리즘](https://user-images.githubusercontent.com/50111853/155309323-a8a0dee5-7ae2-437c-839c-d4deaa05625c.png)
+
+**busy-wait 방식**
+- 프로그래머는 세마포어 지원이 되면 P, S 연산만 구현하면 된다. (추상적으로 지원)
+- Sleep Lock: Block and wake up 방식 (락 없는 프로세스는 CPU를 쓰는게 아니라 아예 blocked 상태다)
+
+![block/ wakeup implementation](https://user-images.githubusercontent.com/50111853/155310277-c83b8c1e-1f51-4a75-b95c-8f8de3ebc806.png)
+
+L: 프로세스를 담고 있는 리스트
+
+![스크린샷 2022-02-23 오후 8 25 11](https://user-images.githubusercontent.com/50111853/155310450-0925d238-74dd-40ce-ab1d-e30d50911e27.png)
+
+#### P연산
+- if문 안으로 못 들어가면 S.L 리스트에 프로세스를 넣고 block 해둔다.
+- 변수값 1 빼고 시작. 
+
+#### V연산
+- 여기서 S는 자원의 개수를 세는거랑은 좀 다름. 음수면 누가 자원을 기다리고 있다. 양수면 자원을 쓰고 있다. busy-wait의 경우랑 좀 다르다.
+- 자원을 내놨는데도 S의 값이 0이라는건 P연산에서 누가 -를 했다는 것 
+- V연산에는 자고 있는 걸 깨워주는 wakeup 함수를 포함하고 있음.
+
+
+## Busy wait vs. Block/wakeup
+- 보통은 block/wakeup이 더 효율적 but 프로세스의 상태를 block/wake할 때도 오버헤드 든다.
+- critical section의 길이가 긴 경우 block / wakeup이 적당
+- critical section의 길이가 매우 짧은 경우 busy-wait이 나을 수도 있음
+
+
+## 2 Types of Semaphores
+#### Counting semaphore
+- 세마포어 변수 값(자원의 개수)이 1 이상으로 갈 수 있을 때
+- 여분의 자원 개수를 셀때 
+
+#### Binary semaphore (= mutex)
+- 0 또는 1값만 가질 수 있는 semaphore
+
+#### 데드락: 둘 이상의 프로세스가 서로 상대방이 충족할 수 있는 이벤트를 무한히 기다리는 현상
+![데드락](https://user-images.githubusercontent.com/50111853/155311534-bf48d4b9-dab6-4039-8db0-d9048fe4a556.png)
+
+해결법: 자원 획득 순서를 똑같이 맞추면 됨. P0, P1 부분을 이렇게 수정하면 된다!
+
+![데드락 해결법](https://user-images.githubusercontent.com/50111853/155312017-70fa1eff-98fe-46a2-b2d9-9f7e6e7d6127.png)
