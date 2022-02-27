@@ -2,6 +2,9 @@
 
 고전적인 프로세스 동기화 관련 문제에 대해 알아본다.
 
+## Concurrency Control (병행 제어)
+- 프로세스 동기화와 같은 얘기임. 병행 작업할때 잘 제어 하자^^
+
 ## Bounded-Buffer Problem (Producer-consumer Problem)
 
 - Bounded Buffer = 유한하다.
@@ -86,14 +89,13 @@
 ### condition variable
 <img width="500" alt="바운디드 버퍼 문제와 조건 변수" src="https://user-images.githubusercontent.com/50111853/155874643-18666c98-a0e3-481a-a93c-e032686834d6.png">
 
+- 특정 조건을 만족하지 않은 프로세스를 잠들게 하는데 그 때 그 조건: 컨디션 var
 - 위 bonded buffer 문제를 condition var로 해결하자면 공유버퍼가 모니터 안에 있음
 - 그래서 생산자든 소비자든 모니터 안에서 활성화되므로 락 걸 필요 X
-- 만약 다른 놈이 있을 경우 큐에 줄을 서고 producer->produce, consumer-> consume 함수 앞에서 기다리며 잠든다. 
+- 만약 다른 놈이 있을 경우 **빈 버퍼를 기다리는 큐(생산자) 또는 내용이 들어있는 버퍼를 기다리는 큐(소비자)**에 줄을 서고 producer->produce, consumer-> consume 함수 앞에서 기다리며 잠든다. 
 
-
-## Concurrency Control (병행 제어)
-- 프로세스 동기화와 같은 얘기임. 병행 작업할때 잘 제어 하자^^ 
-- 
+x.wait(): 프로세스 재워라 
+x.signal(): 깨워라
 
 
 
@@ -103,3 +105,6 @@
 
 2. dining philosophers 문제에서 데드락이 발생하는 경우는?
 정답: 모든 철학자가 동시에 젓가락을 잡으려고 하는 경우
+
+3. monitor에서 프로세스가 wait()할 때, 생산자 프로세스는 (꽉 찬/빈) 버퍼를 기다리는 큐에 줄을 서고 소비자 프로세스는 (꽉 찬/빈) 버퍼를 기다리는 큐에 줄을 선다.
+정답: 빈, 꽉 찬
