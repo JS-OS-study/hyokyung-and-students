@@ -67,8 +67,7 @@ Resource -> Process: 프로세스에게 자원 할당
 #### 자원당 인스턴스가 여러개인 경우 (Banker's algorithm)
 
 <img width="582" alt="스크린샷 2022-03-01 오후 10 24 45" src="https://user-images.githubusercontent.com/50111853/156177114-66e22ae5-d894-4e1f-850e-f0ba39da5b85.png">
-<img width="582" alt="스크린샷 2022-03-01 오후 10 24 45" src="https://user-images.githubusercontent.com/50111853/156177114-66e22ae5-d894-4e1f-850e-f0ba39da5b85.png">
 
-자원 B는 
-<img width="582" alt="스크린샷 2022-03-01 오후 10 24 45" src="https://user-images.githubusercontent.com/50111853/156177114-66e22ae5-d894-4e1f-850e-f0ba39da5b85.png">ㅊㅚ대
-<img width="582" alt="스크린샷 2022-03-01 오후 10 24 45" src="https://user-images.githubusercontent.com/50111853/156177114-66e22ae5-d894-4e1f-850e-f0ba39da5b85.png">
+자원 B는 프로세스 A를 최대 9개 요청한다. Max(최대 요청할 양) - Allocation(할당된 양) = Need(추가 요청할 수 있는 양)  
+이 때 P1처럼 Available로 Need를 충족할 수 있다면 OK  
+다만 P0처럼 Available(가용 자원)의 수로 Need를 충족할 수 없다면 자원을 빌려줄 수 없다.
