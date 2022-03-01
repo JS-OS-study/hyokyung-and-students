@@ -49,7 +49,11 @@ Resource -> Process: 프로세스에게 자원 할당
 - no preemption: cpu, memory는 상태를 쉽게 save, restore할 수 있어서 빼앗음으로써 자원을 사용 가능. 
 - circular wait: 자원에 순서를 정해 '1번 자원을 획득해야지만 2번을 획득할 수 있다'라는 식으로 제한.
 
+### Deadlock avoidance
 
+<img width="539" alt="데드락 회피" src="https://user-images.githubusercontent.com/50111853/156175031-4050c5d0-58f8-4960-ab01-ce35e68eee21.png">
 
-문제
-1. 
+- 프로세스가 시작될때 
+ㄱㅡ 
+ㄱㅡ 프로세스가 
+ㄱㅡ 프로세스가 쓸 
