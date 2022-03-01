@@ -36,3 +36,20 @@ Resource -> Process: 프로세스에게 자원 할당
 
 이 그림은 싸이클이 1개, 자원이 2개라 데드락이 아님.
 
+## 데드락 처리 방법
+<img width="609" alt="데드락 처리 방법" src="https://user-images.githubusercontent.com/50111853/156172526-3176d26e-321b-4efe-b885-e7d539e58115.png">
+
+현대의 운영체제는 대부분 가장 아래의 데드락 Ignorance(무시)함. 데드락은 빈번하게 일어나지 않기 때문에 괜히 방지했다가 오버헤드 일어나지 않도록 함. 사용자가 알아서 프로세스를 죽이거나 대처하도록 함.
+
+### Deadlock prevention
+
+<img width="652" alt="Deadlock prevention" src="https://user-images.githubusercontent.com/50111853/156172754-68636cf3-2b3b-4a3e-9b71-1dcf2182226f.png">
+
+- hold and wait: 프로세스 시작할 때 필요한 모든 자원을 받아놓고 시작함. 자원을 **비효율적으로 사용함.**
+- no preemption: cpu, memory는 상태를 쉽게 save, restore할 수 있어서 빼앗음으로써 자원을 사용 가능. 
+- circular wait: 자원에 순서를 정해 '1번 자원을 획득해야지만 2번을 획득할 수 있다'라는 식으로 제한.
+
+
+
+문제
+1. 
