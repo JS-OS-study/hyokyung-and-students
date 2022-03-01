@@ -53,10 +53,22 @@ Resource -> Process: 프로세스에게 자원 할당
 
 <img width="539" alt="데드락 회피" src="https://user-images.githubusercontent.com/50111853/156175031-4050c5d0-58f8-4960-ab01-ce35e68eee21.png">
 
-- 프로세스가 시작될때 그 프로세스가 쓸 모든 자원의 수(최대사용량)를 알고 시작
+- 프로세스가 시작될때 그 프로세스가 쓸 모든 자원의 수(최대사용량)를 선언하고 시작함으로써 데드락 회피
 
 <img width="554" alt="스크린샷 2022-03-01 오후 10 13 37" src="https://user-images.githubusercontent.com/50111853/156175324-8b1414c8-1082-44f1-9941-7306a043dd20.png">
 
+#### 자원당 인스턴스가 1개인 경우
+
 <img width="558" alt="스크린샷 2022-03-01 오후 10 14 23" src="https://user-images.githubusercontent.com/50111853/156175465-75f2fa10-6e57-4a81-a94a-3ca015612abd.png">
 
-위 그림에서 점선: 이 프로세스가 자원을 한번이라도 사용할 가능성이 있다.
+위 그림에서 점선: 이 프로세스가 이 자원을 한번이라도 요청할 가능성이 있다.  
+데드락 회피 방식은 최악의 상황을 가정함.  
+ 
+#### 자원당 인스턴스가 여러개인 경우 (Banker's algorithm)
+
+<img width="582" alt="스크린샷 2022-03-01 오후 10 24 45" src="https://user-images.githubusercontent.com/50111853/156177114-66e22ae5-d894-4e1f-850e-f0ba39da5b85.png">
+<img width="582" alt="스크린샷 2022-03-01 오후 10 24 45" src="https://user-images.githubusercontent.com/50111853/156177114-66e22ae5-d894-4e1f-850e-f0ba39da5b85.png">
+
+자원 B는 
+<img width="582" alt="스크린샷 2022-03-01 오후 10 24 45" src="https://user-images.githubusercontent.com/50111853/156177114-66e22ae5-d894-4e1f-850e-f0ba39da5b85.png">ㅊㅚ대
+<img width="582" alt="스크린샷 2022-03-01 오후 10 24 45" src="https://user-images.githubusercontent.com/50111853/156177114-66e22ae5-d894-4e1f-850e-f0ba39da5b85.png">
