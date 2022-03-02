@@ -11,7 +11,7 @@
 4. 🗓 **일정** : 매주 수,일 21:00 ~ 23:00
 
 # 진행방식
-1. discussions에 매회 해당하는 챕터에 2가지의 질문과 1가지의 퀴즈를 올린다. 내용은 정리하여 레포지토리에 md파일로 업로드한다.
+1. [discussions](https://github.com/JS-OS-study/hyokyung-and-students/discussions)에 매회 해당하는 챕터에 2가지의 질문과 1가지의 퀴즈를 올린다. 내용은 정리하여 레포지토리에 md파일로 업로드한다.
 2. 스터디가 시작되면, 15분간 다른 사람의 챕터 정리를 읽고 퀴즈를 푸는 시간을 가진다.
 3. 한 명씩 돌아가며 느낀 점을 발표하고, 질문을 받고 퀴즈를 푸는 시간을 가진다.
 4. 마무리 되면 공유하고 싶은 내용이 있는 사람은 내용 공유를 한다.
@@ -26,5 +26,8 @@
 | 2/23 (wed) |   6-1   |           Process Synchronaztion 1,2         | [link](https://core.ewha.ac.kr/publicview/C0101020140404144354492628?vmode=f) |
 | 2/27 (sun) |   6-2   |           Process Synchronaztion 3,4         | [link](https://core.ewha.ac.kr/publicview/C0101020140408134626290222?vmode=f) |
 |  3/2 (wed) |    7    |                Deadlocks 1,2                 | [link](https://core.ewha.ac.kr/publicview/C0101020140411151510275738?vmode=f) |
-|  3/6 (sun) |    8    |           Memory Management 1,2,3,4          | [link](https://core.ewha.ac.kr/publicview/C0101020140425151219100144?vmode=f) |
-|  3/10 (wed)|    9    |              Virtual Memory 1,2              | [link](https://core.ewha.ac.kr/publicview/C0101020140509151648408460?vmode=f) |
+|  3/6 (sun) |  8-1    |           Memory Management 1,2              | [link](https://core.ewha.ac.kr/publicview/C0101020140425151219100144?vmode=f) |
+|  3/9 (wed) |  8-2    |           Memory Management 3,4              | [link](https://core.ewha.ac.kr/publicview/C0101020140425151219100144?vmode=f) |
+|  3/13 (sun)|    9    |              Virtual Memory 1,2              | [link](https://core.ewha.ac.kr/publicview/C0101020140509151648408460?vmode=f) |
+|  3/16 (wed)|    10   |File Systems 1, File Systems Implementation 1,2| [link](https://core.ewha.ac.kr/publicview/C0101020140516150939191200?vmode=f) |
+|  3/20 (sun)|  11  |   Disk Management and Scheduling 1,2              | [link](https://core.ewha.ac.kr/publicview/C0101020140523151255773807?vmode=f) |
