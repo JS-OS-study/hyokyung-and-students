@@ -16,7 +16,7 @@
 - 파일
   - 이름이 있는 정보의 묶음
   - 일반적으로 비휘발성인 보조 기억 장치(HDD, SSD)에 저장
-  - 운영 체제는 다양한 저장 장치를 파일이라는 동일한 논리적 단위로 볼 수 있게 해 줌
+  - 운영체제는 다양한 저장 장치를 파일이라는 동일한 논리적 단위로 볼 수 있게 해 줌
   - 연산자(커널 함수, 이느 모두 시스템 콜을 동반한다)
     - create, read, write, reposition(lseek), delete, open, close 등
     - reposition(lseek): 위치를 변경 및 저장
@@ -26,7 +26,7 @@
     - 파일의 이름, 유형, 저장된 위치, 파일 사이즈
     - 접근 권한(읽기/쓰기/실행), 시간(생성/변경/사용), 소유자 등
 - 파일 시스템
-  - 운영 체제에서 파일을 관리하는 부분
+  - 운영체제에서 파일을 관리하는 부분
   - 파일 및 파일의 메타데이터, 디렉토리 정보 등을 관리
   - 파일의 저장 방법 결정
   - 파일 보호 등
@@ -244,10 +244,10 @@
   - 파일 시스템에 관한 총체적인 정보를 담고 있는 블록
   - 빈 블록, 사용 중인 블록, Inode 블록의 위치, Data 블록의 위치 등을 알려 주는 정보 갖고 있다
 - Inode list (index node list)
-  - `파일 이름을 제외한 파일의 모든 메타 데이터`를 따로 저장
-  - 파일 하나 당 Inode가 하나씩 할당되고, Inode는 파일의 메타 데이터를 갖고 있다
+  - `파일 이름을 제외한 파일의 모든 메타데이터`를 따로 저장
+  - 파일 하나 당 Inode가 하나씩 할당되고, Inode는 파일의 메타데이터를 갖고 있다
   - 파일의 이름은 디렉토리가 가지고 있으며, 디렉토리는 파일의 이름과 Inode의 인덱스를 갖고 있다. 
-    - 이전 수업에서 디렉토리가 파일의 메타 데이터를 모두 가지고 있다고 했는데, 유닉스 파일 시스템의 디렉토리는 파일의 이름과 Inode의 인덱스를 가지고 있다
+    - 이전 수업에서 디렉토리가 파일의 메타데이터를 모두 가지고 있다고 했는데, 유닉스 파일 시스템의 디렉토리는 파일의 이름과 Inode의 인덱스를 가지고 있다
   - direct block은 파일이 존재하는 인덱스를 저장하는 인덱스 블록이다 
     - 파일의 크기가 크지 않다면 이 블록을 이용하여 파일에 접근할 수 있다
   - direct block으로 커버할 수 있는 크기보다 저장 용량이 큰 파일은 single indirect를 통해서 하나의 level을 두어서 저장하는 방식을 취하고, 그보다 더 큰 파일은 double indirect, 더 큰 파일은 triple indirect 방식을 취한다
@@ -257,3 +257,146 @@
 
 <br />
 
+# FAT File System
+
+![image](https://user-images.githubusercontent.com/71188307/158576628-86d31a40-cc9a-4d1f-afba-91837456fee6.png)
+
+<br />
+
+- FAT 파일 시스템은 윈도우즈 계열에서 주로 사용
+- 파일의 메타데이터 일부를 FAT에 저장하고, 나머지 정보는 디렉토리가 가지고 있음
+- 위 이미지에서 217번이 첫 번째 블록인데, 다음 블록의 위치를 FAT에 별도로 관리
+- FAT 테이블 전체를 메모리에 올려 놓았으므로 Linked Allocation의 단점(Random Access 불가, Reliability 문제, 공간 효율성 문제)을 전부 극복함
+- FAT는 중요한 정보이므로 복제본을 만들어 두어야 함
+
+<br />
+
+## Free-Space Management
+
+---
+
+![image](https://user-images.githubusercontent.com/71188307/158577070-6c6e735f-e76c-498d-be8d-9e81469ff3a9.png)
+
+<br />
+
+## Directory Implementation
+
+---
+
+![image](https://user-images.githubusercontent.com/71188307/158577140-40309088-bc17-441e-b5a3-35edc8e5e3fd.png)
+
+<br />
+
+- 파일 메타데이터의 보관 위치
+  - 디렉토리 내에 직접 보관
+  - 디렉토리에는 포인터를 두고 다른 곳에 보관
+    - Inode, FAT 등
+- 긴 파일명 지원
+  - <파일명, 파일 메타데이터>의 리스트에서 각 엔트리는 일반적으로 고정 크기
+  - 하지만 파일명이 고정된 엔트리 길이보다 긴 경우 마지막 엔트리 내 파일명의 뒷 부분이 위치한 곳에 포인터를 둠
+  - 파일명의 나머지 부분은 동일한 디렉토리 파일의 일부에 존재
+
+<br />
+
+## VFS and NFS
+
+---
+
+![image](https://user-images.githubusercontent.com/71188307/158577707-f4b596ba-af09-4386-bb1e-a64587bc2b72.png)
+
+<br />
+
+![image](https://user-images.githubusercontent.com/71188307/158577633-3f3c84c8-e3e7-431f-8c17-3d3d16996e3b.png)
+
+<br />
+
+## Page Cache and Buffer Cache
+
+---
+
+![image](https://user-images.githubusercontent.com/71188307/158577800-d3b1ec22-6177-4829-9e1e-ad993e6f2e70.png)
+
+<br />
+
+![image](https://user-images.githubusercontent.com/71188307/158577899-a53e1801-aa94-441e-9895-09cac7a798c9.png)
+
+<br />
+
+![image](https://user-images.githubusercontent.com/71188307/158578032-a7221738-e2b1-41cc-8bc1-cac4b62871c2.png)
+
+<br />
+
+## Execution of The Program
+
+---
+
+![image](https://user-images.githubusercontent.com/71188307/158578217-c3997efc-49d3-4cd6-bcd5-ece61eab73bf.png)
+
+<br />
+
+- 프로그램이 실행되면 실행 파일이 프로세스가 되며, 프로세스만의 독자적인 주소 공간이 만들어 진다.
+- 이 공간은 코드, 데이터, 스택으로 구분되며 당장 사용될 부분은 물리 메모리에 올라가고, 당장 사용되지 않는 부분은 스왑 영역으로 내려간다.
+- 이때 코드 부분은 이미 파일 시스템에 있기 때문에 스왑 영역에 내리지 않고, 필요 없으면 물리 메모리에서 지운다. 나중에 필요하면 파일 시스템에서 가져오면 된다.
+
+<br />
+
+### Memory Mapped I/O 수행
+
+---
+
+![image](https://user-images.githubusercontent.com/71188307/158578253-401cfd6f-9b9d-420b-b977-0a32d1e89ae1.png)
+
+<br />
+
+- 프로세스가 일반 데이터 파일을 I/O하고 싶을 수 있음
+- 이때 `mmap()` 호출시 Memory Mapped I/O 방식으로 파일을 I/O 할 수 있고, `mmap()` 은 시스템 콜이 필요한 함수이므로 운영체제에 CPU의 제어권이 넘어감
+
+<br />
+
+![image](https://user-images.githubusercontent.com/71188307/158578317-0424b9c9-e559-48b5-9c77-c88b296298dc.png)
+
+<br />
+
+- 운영체제는 데이터 파일의 일부를 프로세스 메모리에 매핑한다
+- 만약 데이터 파일이 매핑영역에 접근했을 때, 물리 메모리에 페이지가 올라와 있지 않다면 Page Fault가 발생
+- 그렇지 않으면 가상 메모리의 매핑영역은 물리 메모리의 페이지 프레임과 일치되므로 프로세스가 데이터 파일에 대해 I/O 를 수행 하고 싶을 때 운영체제의 도움 없이 독자적으로 할 수 있다
+- 물리 메모리에 올라간 데이터 파일과 매핑된 페이지 프레임을 swap out 할 때는 스왑 영역으로 옮기는 것이 아니라 수정사항을 파일 시스템에 적용하고 물리 메모리에서 제거
+- 현재 프로세스 B가 데이터 파일에 대해 Memory Mapped I/O를 수행하여 물리 메모리에 페이지 프레임을 올려 두었으므로, 프로세스 A도 이 페이지 프레임을 공유하여 사용할 수 있다
+
+<br />
+
+### `read()` 수행
+
+---
+
+![image](https://user-images.githubusercontent.com/71188307/158578328-1fca4829-e60e-415f-a79c-862537e88783.png)
+
+<br />
+
+- 프로세스가 일반적인 데이터 파일을 I/O 하기 위해 `read()` 함수를 호출할 수도 있다
+- `read()` 함수는 메모리의 버퍼 캐시를 확인해야 하는데, 통합 버퍼 캐시 환경에서는 페이지 캐시가 버퍼 캐시 역할을 동시에 수행한다. 따라서, Memory Mapped I/O로 올라 간 페이지 캐시를 버퍼 캐시로 사용할 수 있다
+
+<br />
+
+![image](https://user-images.githubusercontent.com/71188307/158578348-8a5a3c2b-53dd-4c86-8edc-be5a1ff195c4.png)
+
+<br />
+
+- 운영체제는 버퍼 캐시에 있던 데이터를 복사하여 프로세스의 주소 공간에 할당한다
+
+<br />
+
+### Memory Mapped I/O vs `read()`
+
+---
+
+- Memory Mapped I/O
+  - 가상 메모리에 올라온 영역이 파일이므로 시스템 콜 없이 I/O 작업을 할 수 있음
+  - 페이지 캐시에 있는 내용을 복사할 필요가 없음
+  - 여러 프로세스가 `mmap()` 을 사용하여 같은 영역을 공유하여 사용하면 일관성 문제가 발생할 수 있음
+- `read()`
+  - 운영체제에 의해 제어 됨
+  - 페이지 캐시에 있는 내용을 복사해야 함
+  - 여러 프로세스가 `read()` 를 사용해도 일관성 문제가 발생하지 않음
+
+<br />
