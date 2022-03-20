@@ -26,8 +26,10 @@
 - 물리 디스크를 파티션으로 구성하고, 각각의 파티션에 파일 시스템을 깔거나 스와핑용도 등으로도 사용가능
 
 ## Open()
-![1]
-![2]
+
+![open의 동작 과정1](https://user-images.githubusercontent.com/50111853/159148053-b095cd35-927d-4e82-9f85-664bfaa28968.png)
+
+![동작 과정 시각화](https://user-images.githubusercontent.com/50111853/159148051-41af0d61-13ea-4ce1-af6b-ae97ca6bbb47.png)
 
 - 이때 root는 고정이라 위치를 바로 알 수 있음. 디스크에 있던 root의 metadata가 메모리로 올라감
 - 메모리에 있는 root의 주소를 찾고, root에 있는 a의 메타데이터에 접근
